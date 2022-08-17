@@ -1,0 +1,9 @@
+<h1>Write a review for <%= @restaurant.name %></h1>
+<div>
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.collection_radio_buttons :rating, [[1, '1'], [1.5, '1.5'] ,[2, '2'], [2.5, '2.5'],[3, '3'], [3.5, '3.5'],[4, '4'], [4.5, '4.5'],[5, '5']], :first, :last %>
+    <%= f.input :content %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "⬅️ Back", :back, class: 'd-block pt-5' %>
+</div>

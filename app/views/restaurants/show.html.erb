@@ -9,3 +9,22 @@
     class: 'd-block',
     data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
 %>
+
+<div class="py-5">
+  <h3>🗨️ Reviews</h3>
+
+  <div class="row form">
+    <% @reviews.each do |review| %>
+      <div class="col-6 col-lg-3 pb-2">
+        <%= review.rating %>
+        <%= review.content %>
+        <%= link_to '🗑️', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Write a new review', new_restaurant_review_path(@restaurant), class: 'd-block' %>
+</div>
+
+<br>
+<%= link_to 'See all restaurants', restaurants_path %>
